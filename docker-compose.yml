@@ -1,0 +1,31 @@
+services:
+  mysql-db:
+    image: mysql:8.0
+    container_name: employee_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: employee_management_db
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  employee-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: employee_api
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql-db
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: server=mysql-db;port=3306;database=employee_management_db;user=root;password=rootpassword;
+      Jwt__Key: ThisIsMySuperSecretKeyForJwtAuthenticationMinimum32CharactersLong
+      Jwt__Issuer: EmployeeManagementApi
+      Jwt__Audience: EmployeeManagementApi
+      Jwt__ExpireMinutes: 60
+
+volumes:
+  mysql_data:
