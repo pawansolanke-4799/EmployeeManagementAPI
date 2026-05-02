@@ -1,128 +1,147 @@
-Employee Management API
+# **Employee Management API**
 
-A production-style ASP.NET Core Web API project built using .NET 8 and MySQL.
-This project demonstrates backend development concepts such as JWT Authentication, Role-Based Authorization, Refresh Tokens, Pagination, Search, Repository Pattern, API Versioning, Global Exception Handling, Dockerized Database setup, and Clean API architecture.
+A production-style ASP.NET Core Web API project built using **.NET 8** and **MySQL**.
 
-------------------------------------------------------------------------------------------------------------------------------------
+This project demonstrates backend development concepts such as **JWT Authentication, Role-Based Authorization, Refresh Tokens, Pagination, Search, Repository Pattern, API Versioning, Global Exception Handling, Dockerized Database Setup, and Clean API Architecture**.
 
-Features
+---
 
-* ASP.NET Core Web API (.NET 8)
-* Entity Framework Core with MySQL
-* JWT Authentication
-* Refresh Token Implementation
-* Role-Based Authorization (Admin / Employee)
-* CRUD Operations for Employees and Departments
-* Pagination
-* Search Functionality
-* API Versioning
-* Repository Pattern
-* Service Layer Architecture
-* Global Exception Handling Middleware
-* Response Caching
-* Swagger/OpenAPI Documentation
-* Dockerized MySQL Setup
-* Clean Folder Structure
-* Async/Await Implementation
+## **Features**
 
-------------------------------------------------------------------------------------------------------------------------------------
+- ASP.NET Core Web API (.NET 8)
+- Entity Framework Core with MySQL
+- JWT Authentication
+- Refresh Token Implementation
+- Role-Based Authorization (Admin / Employee)
+- CRUD Operations for Employees and Departments
+- Pagination
+- Search Functionality
+- API Versioning
+- Repository Pattern
+- Service Layer Architecture
+- Global Exception Handling Middleware
+- Response Caching
+- Swagger / OpenAPI Documentation
+- Dockerized MySQL Setup
+- Clean Folder Structure
+- Async/Await Implementation
 
+---
 
-Technologies Used
+## **Technologies Used**
 
-* C#
-* ASP.NET Core Web API
-* Entity Framework Core
-* MySQL
-* JWT Tokens
-* Docker & Docker Compose
-* Swagger / Swashbuckle
-* VS Code
+- C#
+- ASP.NET Core Web API
+- Entity Framework Core
+- MySQL
+- JWT Tokens
+- Docker & Docker Compose
+- Swagger / Swashbuckle
+- VS Code
 
-------------------------------------------------------------------------------------------------------------------------------------
+---
 
-
-Authentication & Authorization
+## **Authentication & Authorization**
 
 Implemented JWT-based authentication with:
 
-* Access Token
-* Refresh Token
-* Token Expiry Handling
+- Access Token
+- Refresh Token
+- Token Expiry Handling
 
 Role-based authorization is implemented using:
+
+```csharp
 [Authorize(Roles = "Admin")]
+```
 
-Example:
+### **Example**
 
-* Admin can create departments
-* Employee role receives 403 Forbidden
+- Admin can create departments
+- Employee role receives **403 Forbidden**
 
-------------------------------------------------------------------------------------------------------------------------------------
+---
 
+## **API Features**
 
-API Features
+### **Employee APIs**
 
-Employee APIs
+- Get All Employees
+- Get Employee By Id
+- Create Employee
+- Update Employee
+- Delete Employee
 
-* Get All Employees
-* Get Employee By Id
-* Create Employee
-* Update Employee
-* Delete Employee
+### **Department APIs**
 
-Department APIs
+- Get Departments
+- Create Department
 
-* Get Departments
-* Create Department
+### **Auth APIs**
 
-Auth APIs
+- Register
+- Login
+- Refresh Token
 
-* Register
-* Login
-* Refresh Token
+---
 
-------------------------------------------------------------------------------------------------------------------------------------
-
-
-Pagination & Search
+## **Pagination & Search**
 
 Implemented pagination and search using query parameters.
 
-Example:
-GET /api/v1/Employee?pageNumber=1&pageSize=5&search=John
+### **Example**
 
-API Versioning
+```http
+GET /api/v1/Employee?pageNumber=1&pageSize=5&search=John
+```
+
+---
+
+## **API Versioning**
 
 Implemented API versioning using URL versioning.
 
-Example:
-/api/v1/Employee
+### **Example**
 
-Exception Handling
+```http
+/api/v1/Employee
+```
+
+---
+
+## **Exception Handling**
 
 Implemented centralized exception handling using custom middleware.
 
-Features:
+### **Features**
 
-* Global error handling
-* Clean error responses
-* Internal server error handling
+- Global error handling
+- Clean error responses
+- Internal server error handling
 
-------------------------------------------------------------------------------------------------------------------------------------
+---
 
-
-Docker Setup
+## **Docker Setup**
 
 MySQL database runs inside Docker container using Docker Compose.
 
-Run containers:
+### **Run Containers**
+
+```bash
 docker compose up --build
+```
 
-Stop containers:
+### **Stop Containers**
+
+```bash
 docker compose down
+```
 
-Project Structure
+---
+
+## **Project Structure**
+
+```text
 Controllers/
 DTOs/
 Entities/
@@ -131,27 +150,34 @@ Services/
 Middleware/
 Data/
 Migrations/
+```
 
-Swagger Documentation
+---
+
+## **Swagger Documentation**
 
 Swagger UI is enabled for API testing and documentation.
 
-Example:
+### **Example**
+
+```text
 http://localhost:8080/swagger
+```
 
-Future Improvements
+---
 
-* Unit Testing
-* Redis Caching
-* Serilog File Logging Improvements
-* AutoMapper
-* CI/CD Pipeline
-* Angular Frontend Integration
+## **Future Improvements**
 
-------------------------------------------------------------------------------------------------------------------------------------
+- Unit Testing
+- Redis Caching
+- Serilog File Logging Improvements
+- AutoMapper
+- CI/CD Pipeline
+- Angular Frontend Integration
 
+---
 
-Author
+## **Author**
 
-Pawan Solanke
+**Pawan Solanke**  
 .NET Backend Developer
